@@ -1,0 +1,63 @@
+{
+    "screenRegion": { "left": 34, "top": 40, "right": 447, "bottom": 272 },
+    "buttonRegion": { "left": 34, "top": 272, "right": 447, "bottom": 774 },
+    "screenPixels": { "left": 48, "top": 54, "right": 432, "bottom": 246 },
+    "buttons": [
+        { "key": "KBD_RIGHT",   "x": 407, "y": 378, "w": 29, "h": 47, "padding": 8 },
+        { "key": "KBD_LEFT",    "x": 289, "y": 378, "w": 29, "h": 47, "padding": 8 },
+        { "key": "KBD_UP",      "x": 327, "y": 352, "w": 70, "h": 25, "padding": 8 },
+        { "key": "KBD_DOWN",    "x": 327, "y": 427, "w": 70, "h": 25, "padding": 8 },
+
+        { "key": "KBD_F5",      "x": 372, "y": 289, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_F4",      "x": 290, "y": 289, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_F3",      "x": 207, "y": 289, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_F2",      "x": 124, "y": 289, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_F1",      "x":  42, "y": 289, "w": 67, "h": 30, "padding": 8 },
+
+        { "key": "KBD_CLEAR",   "x": 372, "y": 467, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_POWER",   "x": 372, "y": 511, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_DIV",     "x": 372, "y": 555, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_MUL",     "x": 372, "y": 599, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_MINUS",   "x": 372, "y": 643, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_PLUS",    "x": 372, "y": 687, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_ENTER",   "x": 372, "y": 731, "w": 67, "h": 37, "padding": 8 },
+             
+        { "key": "KBD_CUSTOM",  "x": 290, "y": 467, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_TAN",     "x": 290, "y": 511, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_RPARENT", "x": 290, "y": 555, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_9",       "x": 290, "y": 602, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_6",       "x": 290, "y": 646, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_3",       "x": 290, "y": 690, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_SIGN",    "x": 290, "y": 734, "w": 67, "h": 30, "padding": 8 },
+
+        { "key": "KBD_MORE",    "x": 207, "y": 379, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_DEL",     "x": 207, "y": 423, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_PRGM",    "x": 207, "y": 467, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_COS",     "x": 207, "y": 511, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_LPARENT", "x": 207, "y": 555, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_8",       "x": 207, "y": 602, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_5",       "x": 207, "y": 646, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_2",       "x": 207, "y": 690, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_DOT",     "x": 207, "y": 734, "w": 67, "h": 30, "padding": 8 },
+
+        { "key": "KBD_MODE",    "x": 124, "y": 379, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_XVAR",    "x": 124, "y": 423, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_MATRX",   "x": 124, "y": 467, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_SIN",     "x": 124, "y": 511, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_EE",      "x": 124, "y": 555, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_7",       "x": 124, "y": 602, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_4",       "x": 124, "y": 646, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_1",       "x": 124, "y": 690, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_0",       "x": 124, "y": 734, "w": 67, "h": 30, "padding": 8 },
+                
+        { "key": "KBD_2ND",     "x":  42, "y": 379, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_ALPHA",   "x":  42, "y": 423, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_GRAPH",   "x":  42, "y": 467, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_LOG",     "x":  42, "y": 511, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_LN",      "x":  42, "y": 555, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_SQR",     "x":  42, "y": 599, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_COMMA",   "x":  42, "y": 643, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_STO",     "x":  42, "y": 687, "w": 67, "h": 30, "padding": 8 },
+        { "key": "KBD_ON",      "x":  42, "y": 731, "w": 67, "h": 30, "padding": 8 }
+   ]
+}

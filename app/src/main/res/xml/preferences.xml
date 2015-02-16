@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+        
+    <PreferenceCategory
+        android:title="@string/preference_category_ui"
+        />
+
+    <CheckBoxPreference 
+        android:key="haptic_feedback" 
+        android:title="@string/preference_haptic_feedback_title" 
+        android:summary="@string/preference_haptic_feedback_summary"
+        android:defaultValue="true"
+        />
+
+    <CheckBoxPreference 
+        android:key="zoom" 
+        android:title="@string/preference_zoom_title" 
+        android:summary="@string/preference_zoom_summary"
+        android:defaultValue="false"
+        />
+
+    <CheckBoxPreference 
+        android:key="wake_lock" 
+        android:title="@string/preference_wake_lock_title" 
+        android:summary="@string/preference_wake_lock_summary"
+        android:defaultValue="false"
+        />
+        
+    <net.supware.tipro.view.ProgressCategory
+        android:key="roms"
+        android:title="@string/preference_category_roms"
+        android:persistent="false" />
+
+</PreferenceScreen>
