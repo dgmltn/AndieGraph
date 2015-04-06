@@ -22,7 +22,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_86"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
@@ -40,6 +40,63 @@
             </intent-filter>
 
         </activity>
+
+        <!-- beginnings of https://gist.github.com/z8888q/7280681 -->
+        <activity-alias
+            android:name=".TI82"
+            android:targetActivity=".MainActivity"
+            android:icon="@mipmap/ic_launcher_82"
+            android:enabled="false">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+
+        <activity-alias
+            android:name=".TI83"
+            android:targetActivity=".MainActivity"
+            android:icon="@mipmap/ic_launcher_83"
+            android:enabled="false">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+
+        <activity-alias
+            android:name=".TI85"
+            android:targetActivity=".MainActivity"
+            android:icon="@mipmap/ic_launcher_85"
+            android:enabled="false">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+
+        <activity-alias
+            android:name=".TI86"
+            android:targetActivity=".MainActivity"
+            android:icon="@mipmap/ic_launcher_86"
+            android:enabled="false">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
 
         <activity
             android:name=".SettingsActivity"

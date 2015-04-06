@@ -213,7 +213,7 @@ public abstract class Ti8xActivity extends FullScreenActivity {
 		}
 		isPausing = true;
 
-		NativeLib.stop();
+		//NativeLib.stop();
 		NativeLib.onPause();
 
 		mScreenView.clear();
