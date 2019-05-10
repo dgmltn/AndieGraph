@@ -38,6 +38,10 @@
 #define ftell           gztell
 #endif
 
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
+#define FITWITHIN(x, l, h) (MIN(MAX(x, l), h))
+
 /** User-defined parameters for ATI85 ************************/
 int  Mode      = 0;          /* Various operating mode bits  */
 byte Verbose   = 3;          /* Debug messages ON/OFF switch */
@@ -862,10 +866,21 @@ void TI85Colors(register byte V)
 
 void TI83Colors(register byte V)
 {
-  V = 0x7F-((V&0x3F)<<1);
-  SetColor(1,V,V,V+0x20);
-  V = 0xFF-V;
-  SetColor(0,V-0x08,V,V-0x08);
+  /* Setting pixel colors for screen to emulate
+     low and high battery */
+  int pxOn = 255 - MIN((((V&0x3F)-20)*10)+0, 254);
+  byte pxOnR = (byte) FITWITHIN(pxOn, 1, 191);
+  byte pxOnG = (byte) FITWITHIN(pxOn, 1, 199);
+  byte pxOnB = (byte) FITWITHIN(pxOn, 33, 191);
+  int pxOff = 511 - MAX((((V&0x3F)-12)*10)+0, 254);
+  byte pxOffR = (byte) FITWITHIN(pxOff, 1, 191);
+  byte pxOffG = (byte) FITWITHIN(pxOff, 1, 199);
+  byte pxOffB = (byte) FITWITHIN(pxOff, 33, 191);
+
+  // Setting the color for turned on pixels
+  SetColor(1, pxOnR, pxOnG, pxOnB);
+  // Setting the color for turned off pixels
+  SetColor(0, pxOffR, pxOffG, pxOffB);
 }
 
 /** TI8*Page() ***********************************************/
