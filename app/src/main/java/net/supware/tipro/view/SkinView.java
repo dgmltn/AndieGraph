@@ -1,5 +1,7 @@
 package net.supware.tipro.view;
 
+import java.util.HashMap;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -78,8 +80,8 @@ public class SkinView extends View {
 	/**
 	 * Region to display pressed button (relative to screen)
 	 */
-	RectF mPressedButtonRectF;
-	Rect mInvalidateRect;
+	HashMap<TIButton, RectF> mPressedButtonsRectF = new HashMap<TIButton, RectF>();
+	HashMap<TIButton, Rect> mInvalidateRects = new HashMap<TIButton, Rect>();
 
 	public SkinView(Context context, AttributeSet attributes) {
 		super(context, attributes);
@@ -217,35 +219,35 @@ public class SkinView extends View {
 		canvas.drawBitmap(mSkinBitmap, mSkinButtonDrawableRegion,
 				mViewButtonDrawableRegion, mSkinPaint);
 
-		// If a button is pressed, draw that
-		if (mPressedButtonRectF != null) {
-			canvas.drawRoundRect(mPressedButtonRectF, 5, 5, mButtonPaint);
+		// If one or more buttons are pressed, draw that
+		for (HashMap.Entry<TIButton, RectF> entry : mPressedButtonsRectF.entrySet()) {
+			canvas.drawRoundRect(entry.getValue(), 5, 5, mButtonPaint);
 		}
 	}
 
 	public void setPressedButton(TIButton button) {
-		mInvalidateRect = transformRect(button.rect, mSkinButtonRegion,
-				mViewButtonRegion);
-		mPressedButtonRectF = new RectF(mInvalidateRect);
+		mInvalidateRects.put(button, transformRect(button.rect, mSkinButtonRegion,
+				mViewButtonRegion));
+		mPressedButtonsRectF.put(button, new RectF(mInvalidateRects.get(button)));
 
 		// Add a 2 pixel border, to be safe
-		mInvalidateRect.inset(-2, -2);
+		mInvalidateRects.get(button).inset(-2, -2);
 
 		// Copy mInvalidateRect because .invalidate is destructive
-		Rect dirty = new Rect(mInvalidateRect);
+		Rect dirty = new Rect(mInvalidateRects.get(button));
 		this.invalidate(dirty);
 	}
 
-	public void clearPressedButton() {
-		mPressedButtonRectF = null;
+	public void clearPressedButton(TIButton button) {
+		mPressedButtonsRectF.remove(button);
 
-		if (mInvalidateRect != null) {
+		if (mInvalidateRects.containsKey(button)) {
 
 			// Copy mInvalidateRect because .invalidate is destructive
-			Rect dirty = new Rect(mInvalidateRect);
+			Rect dirty = new Rect(mInvalidateRects.get(button));
 			this.invalidate(dirty);
 
-			mInvalidateRect = null;
+			mInvalidateRects.remove(button);
 		}
 	}
 
