@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.AlertDialog;
@@ -130,12 +131,6 @@ public abstract class Ti8xActivity extends FullScreenActivity {
 
 			case MotionEvent.ACTION_DOWN:
 			case MotionEvent.ACTION_POINTER_DOWN:
-			case MotionEvent.ACTION_MOVE:
-				// Check if moving off a pressed button
-				if (mPressedButtons.containsKey(pointerId)
-					&& !mPressedButtons.get(pointerId).rect.contains(p.x, p.y)) {
-					keyUp(pointerId);
-				}
 
 				TIButton currentButton = mSkinModel.getButtonAt(p);
 				// Check if clicking or moving onto a new button
@@ -143,6 +138,37 @@ public abstract class Ti8xActivity extends FullScreenActivity {
 					&& (currentButton != null)) {
 					mPressedButtons.put(pointerId, currentButton);
 					keyDown(pointerId);
+				}
+
+				break;
+
+			case MotionEvent.ACTION_MOVE:
+				int pointerCount = event.getPointerCount();
+				HashMap<Integer, TIButton> currentButtons = new HashMap<Integer, TIButton>();
+				for(int i = 0; i < pointerCount; ++i)
+				{
+					pointerIndex = i;
+					pointerId = event.getPointerId(pointerIndex);
+					p = mSkinView.screenToButton((int) event.getX(pointerIndex),
+												 (int) event.getY(pointerIndex));
+					currentButtons.put(pointerId, mSkinModel.getButtonAt(p));
+				}
+				ArrayList<Integer> noLongerHeldButtons = new ArrayList<Integer>();
+				for (HashMap.Entry<Integer, TIButton> entry : mPressedButtons.entrySet()) {
+					if (entry.getValue() != null & !currentButtons.containsValue(entry.getValue()))
+					{
+						noLongerHeldButtons.add(entry.getKey());
+					}
+				}
+				for (int i = 0; i < noLongerHeldButtons.size() ; i++) {
+					keyUp(noLongerHeldButtons.get(i));
+				}
+				for (HashMap.Entry<Integer, TIButton> entry : currentButtons.entrySet()) {
+					if (entry.getValue() != null & !mPressedButtons.containsValue(entry.getValue()))
+					{
+						mPressedButtons.put(entry.getKey(), entry.getValue());
+						keyDown(entry.getKey());
+					}
 				}
 
 				break;
